@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import FAQAddForm from "../components/FAQAddForm";
 import FAQCard from "../components/FAQCard";
 
+const BASE_URL = import.meta.env.DEV
+	? 'http://127.0.0.1:3000'
+	: 'https://fruitai-qbfd.onrender.com'
+
 const FAQPage = () => {
     const [faqs, setFaqs] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -17,7 +21,7 @@ const FAQPage = () => {
 
     const deleteFaq = async (faqId) => {
         try {
-            const res = await fetch(`http://127.0.0.1:3000/api/faqs/${faqId}`, {
+            const res = await fetch(`${BASE_URL}/api/faqs/${faqId}`, {
                 method: 'DELETE',
             })
 
@@ -53,7 +57,7 @@ const FAQPage = () => {
         }
 
         try {
-            const res = await fetch(`http://127.0.0.1:3000/api/faqs/${faqId}`, {
+            const res = await fetch(`${BASE_URL}/api/faqs/${faqId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,7 +94,7 @@ const FAQPage = () => {
             setError('');
 
             try {
-                const res = await fetch('http://127.0.0.1:3000/api/faqs');
+                const res = await fetch('${BASE_URL}/api/faqs');
                 const data = await res.json();
 
                 if (!res.ok) {

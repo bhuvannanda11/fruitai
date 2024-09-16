@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { IoSend } from "react-icons/io5";
 import profileImage from '../assets/profile.jpeg';
 
+const BASE_URL = import.meta.env.DEV
+	? 'http://127.0.0.1:3000'
+	: 'https://fruitai-qbfd.onrender.com'
+
 const ChatPage = () => {
     const [messageLogs, setMessageLogs] = useState([]);
     const [message, setMessage] = useState('');
@@ -21,7 +25,7 @@ const ChatPage = () => {
         const newMessage = { type: 'person', message }
 
         try {
-            const res = await fetch('http://127.0.0.1:3000/api/chat', {
+            const res = await fetch(`${BASE_URL}/api/chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

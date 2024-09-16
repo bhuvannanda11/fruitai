@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+const BASE_URL = import.meta.env.DEV
+	? 'http://127.0.0.1:3000'
+	: 'https://fruitai-qbfd.onrender.com'
+
 const FAQAddForm = ({ setFaqs, setShowAddFaqForm }) => {
     const [fruitName, setFruitName] = useState('');
     const [faqTitle, setFaqTitle] = useState('');
@@ -15,7 +19,7 @@ const FAQAddForm = ({ setFaqs, setShowAddFaqForm }) => {
         }
 
         try {
-            const res = await fetch('http://127.0.0.1:3000/api/faqs', {
+            const res = await fetch(`${BASE_URL}/api/faqs`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
