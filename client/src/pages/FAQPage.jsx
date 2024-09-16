@@ -94,7 +94,7 @@ const FAQPage = () => {
             setError('');
 
             try {
-                const res = await fetch('${BASE_URL}/api/faqs');
+                const res = await fetch(`${BASE_URL}/api/faqs`);
                 const data = await res.json();
 
                 if (!res.ok) {
