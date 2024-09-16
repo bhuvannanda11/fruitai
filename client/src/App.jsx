@@ -16,7 +16,7 @@ const App = () => {
         <div className={`
             ${(
                 /* Used for gradient background on certain pages */
-                path === '/' ||
+                path === '/dashboard' ||
                 path === '/faq' ||
                 path === '/about'
             ) && 'bg-gradient-to-r from-[#E0BCF3] to-[#7EE7EE] text-white'}
