@@ -23,8 +23,8 @@ const App = () => {
             p-5 min-h-screen
         `}>
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/dashboard" element={<HomePage />} />
+                <Route path="/" element={<LoginPage />} />
                 <Route path='/faq' element={<FAQPage />} />
                 <Route path='/about' element={<AboutPage />} />
                 <Route path='/chat' element={<ChatPage />} />
